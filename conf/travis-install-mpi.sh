@@ -12,10 +12,14 @@ case "$os" in
     Darwin)
         case "$MPI_IMPL" in
             mpich|mpich3)
-                brew install mpich
+                brew doctor
+                brew config
+                brew install -vd --force-bottle mpich
                 ;; 
             openmpi)
-                brew install openmpi
+                brew doctor
+                brew config
+                brew install -vd --force-bottle openmpi
                 ;;
             *)
                 echo "Unknown MPI implementation: $MPI_IMPL"
