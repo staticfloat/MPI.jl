@@ -1,7 +1,7 @@
 #!/bin/sh
 # This configuration file was taken originally from the mpi4py project
 # <http://mpi4py.scipy.org/>, and then modified for Julia
-set -e
+#set -e
 set -x
 
 MPI_IMPL="$1"
@@ -13,11 +13,13 @@ case "$os" in
             mpich|mpich3)
                 brew doctor
                 brew config
+                brew update
                 brew install -vd --force-bottle mpich
                 ;; 
             openmpi)
                 brew doctor
                 brew config
+                brew update
                 brew install -vd --force-bottle openmpi
                 ;;
             *)
